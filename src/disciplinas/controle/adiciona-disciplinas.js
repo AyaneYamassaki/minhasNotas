@@ -1,33 +1,32 @@
 $(document).ready(function() {
 
-    // Criar uam função para monitorar o click em cima do botão com classe btn-save
+    // Monitorar o clique em cima do botão com a classe btn-save
     $('.btn-save').click(function(e) {
         e.preventDefault()
-            // Iremos coletar todas as informações digitadas no formulário
-        var dados = $('#adiciona-disciplinas').serialize()
-            // Criar uma requisição AJAX assincrona
+
+        // Iremos criar uma variável que receberá todas as informações do formulário e os transformará em array
+        let dados = $('#adiciona-disciplinas').serialize()
+
         $.ajax({
-            type: 'POST', //É o como as informações serão enviadas ao PHP
-            dataType: 'JSON', //É o modo de transição de dados entre a visão e modelo
-            assync: true, //É somente para demonstrar que a requisão será assíncrona
-            data: dados, //É as informações que serão enviadas ao PHP
-            url: 'src/disciplinas/modelo/adiciona-disciplinas.php', //É para onde irá as informações
+            type: 'POST',
+            dataType: 'JSON',
+            assync: true,
+            data: dados,
+            url: 'src/disciplinas/modelo/adiciona-disciplinas.php',
             success: function(dados) {
                 // Demonstrar se deu certo ou errado...
                 $('#adiciona-disciplinas').after(`
                 <div class="alert ${dados.tipo} alert-dismissible fade show" role="alert">
-                <strong>${dados.mensagem}</strong> 
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
+                    <strong>${dados.mensagem}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
                 `)
-
-                // Limpando os campos do nosso formulário
+                    // Limpando os campos do nosso formulário
                 $('#nome').val('')
                 $('#professor').val('')
                 $('#nota').val('')
-
             }
         })
     })

@@ -4,7 +4,7 @@
     include('../../conexao/conn.php');
 
     // Criar uma query de consulta ao banco de dados
-    $sql = "SELECT * FROM disciplinas";
+    $sql = "SELECT * FROM disciplinas WHERE id = ".$_REQUEST['id']."";
 
     // Agora iremos executar nossa query SQL
     $resultado = mysqli_query($conecta, $sql);

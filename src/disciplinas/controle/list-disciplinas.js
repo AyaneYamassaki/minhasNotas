@@ -10,14 +10,14 @@ $(document).ready(function() {
 
                 let resultado = `
                     <tr>
-                        <td>${dados[i].id}</td>
+                        <td class="text-center d-none d-sm-block">${dados[i].id}</td>
                         <td>${dados[i].nome}</td>
-                        <td>${dados[i].professor}</td>
-                        <td>${dados[i].nota}</td>
-                        <td>
-                            <button class="btn btn-info btn-view btn-sm"><i class="mdi mdi-eye"></i></button>
-                            <button class="btn btn-primary btn-edit btn-sm"><i class="mdi mdi-pencil"></i></button>
-                            <button class="btn btn-danger btn-delete btn-sm"><i class="mdi mdi-trash-can"></i></button>
+                        <td class="d-none d-sm-block">${dados[i].professor}</td>
+                        <td class="text-center">${dados[i].nota}</td>
+                        <td class="text-center">
+                            <button id="${dados[i].id}" class="btn btn-info btn-sm btn-view"><i class="mdi mdi-eye"></i></button>
+                            <button id="${dados[i].id}" class="btn btn-primary btn-sm btn-edit"><i class="mdi mdi-pencil"></i></button>
+                            <button id="${dados[i].id}" class="btn btn-danger btn-sm btn-delete"><i class="mdi mdi-trash-can"></i></button>
                         </td>
                     </tr>
                 `
@@ -25,8 +25,7 @@ $(document).ready(function() {
                 $('tbody').append(resultado)
 
             }
-
+            $('body').append(`<script src="src/disciplinas/controle/view-disciplinas.js"></script>`);
         }
     })
-
 })
