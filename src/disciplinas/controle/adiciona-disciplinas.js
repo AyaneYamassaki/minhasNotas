@@ -23,6 +23,8 @@ $(document).ready(function() {
                         </button>
                 </div>
                 `)
+
+                $('.btn-save').show()
                     // Limpando os campos do nosso formulário
                 $('#nome').val('')
                 $('#professor').val('')
