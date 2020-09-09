@@ -33,19 +33,29 @@ $(document).ready(function() {
                 $('#form').load('src/disciplinas/visao/adiciona-disciplinas.html', function() {
                     $('h4').empty()
                     $('h4').append('Editar Registro')
-                    $('#nome').attr('disabled', false)
+                    $('.btn-save').after('<button class="btn btn-secondary btn-block btn-close"><i class="mdi mdi-close"></i> Fechar</button>')
+                    $('.btn-save').addClass('btn-update').removeClass('btn-save')
                     $('#nome').val(dados[0].nome)
-                    $('#professor').attr('disabled', false)
                     $('#professor').val(dados[0].professor)
-                    $('#nota').attr('disabled', false)
-                    $('#nota').empty()
-                    $('#nota').append(`<option>${dados[0].nota}</option>`)
-                    $('.btn-save').hide()
-                    $('.btn-save').after('<button class="btn btn-success btn-block btn-edit"><i class="mdi mdi-save-content"></i> Salvar Alterações</button>')
+                    switch (dados[0].nota) {
+                        case 'MB':
+                            var mencao = "Muito Bom"
+                            break
+                        case 'B':
+                            var mencao = "Bom"
+                            break
+                        case 'R':
+                            var mencao = "Regular"
+                            break
+                        case 'I':
+                            var mencao = "Insatisfatório"
 
+                    }
+                    $('#nota').append(`<option value="${dados[0].nota}" selected>${mencao}</option>`)
+                    $('#nota').after(`<input type="hidden" name="id" id="id" value="${dados[0].id}">`)
                     btnClose()
                 })
-
+                $('body').append(`<script src="src/disciplinas/controle/update-disciplinas.js"></script>`);
             }
         })
 
