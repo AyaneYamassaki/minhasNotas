@@ -13,7 +13,7 @@ $(document).ready(function() {
                         <td class="text-center d-none d-sm-block">${dados[i].id}</td>
                         <td>${dados[i].nome}</td>
                         <td class="d-none d-sm-block">${dados[i].curso}</td>
-                        <td class="text-center">${dados[i].tipo}</td>
+                        <td class="text-center">${dados[i].tipo == 1? 'Administrador': 'Aluno'}</td>
                         <td class="text-center">
                             <button id="${dados[i].id}" class="btn btn-info btn-sm btn-view"><i class="mdi mdi-eye"></i></button>
                             <button id="${dados[i].id}" class="btn btn-primary btn-sm btn-edit"><i class="mdi mdi-pencil"></i></button>

@@ -41,7 +41,7 @@ $(document).ready(function() {
                     $('#curso').val(dados[0].curso)
                     $('#tipo').attr('disabled', true)
                     $('#tipo').empty()
-                    $('#tipo').append(`<option>${dados[0].tipo}</option>`)
+                    $('#tipo').append(`<option value="${dados[0].tipo}">${dados[0].tipo == 1 ? 'Administrador':'Aluno'}</option>`)
 
                     btnClose()
                 })
