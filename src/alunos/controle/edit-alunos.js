@@ -37,6 +37,7 @@ $(document).ready(function() {
                     $('.btn-save').addClass('btn-update').removeClass('btn-save')
                     $('#nome').val(dados[0].nome)
                     $('#curso').val(dados[0].curso)
+                    $('#senha').val(dados[0].senha)
                     switch (dados[0].tipo) {
                         case '1':
                             var acesso = "Administrador do Sistema"

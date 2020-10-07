@@ -39,6 +39,8 @@ $(document).ready(function() {
                     $('#nome').val(dados[0].nome)
                     $('#curso').attr('disabled', true)
                     $('#curso').val(dados[0].curso)
+                    $('#senha').attr('disabled', true)
+                    $('#senha').val(dados[0].senha)
                     $('#tipo').attr('disabled', true)
                     $('#tipo').empty()
                     $('#tipo').append(`<option value="${dados[0].tipo}">${dados[0].tipo == 1 ? 'Administrador':'Aluno'}</option>`)
