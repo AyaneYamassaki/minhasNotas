@@ -11,6 +11,7 @@ $(document).ready(function() {
                 let resultado = `
                     <tr>
                         <td class="text-center d-none d-sm-block">${dados[i].id}</td>
+                        <td><img width="40" height="50" src=src/alunos/modelo/img/${dados[i].foto}></td>
                         <td>${dados[i].nome}</td>
                         <td class="d-none d-sm-block">${dados[i].curso}</td>
                         <td class="text-center">${dados[i].tipo == 1? 'Administrador': 'Aluno'}</td>
